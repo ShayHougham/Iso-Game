@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://datr6o13poucr"]
+
+[ext_resource type="Script" uid="uid://vkpjvvxhnhr4" path="res://Tile.gd" id="1_j13wd"]
+[ext_resource type="Texture2D" uid="uid://bv4mpiknbqnp7" path="res://groundCheckered.png" id="2_je3b2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_au6lh"]
+shading_mode = 0
+albedo_texture = ExtResource("2_je3b2")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_y0vo0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_je3b2"]
+
+[node name="Tile" type="Node3D"]
+script = ExtResource("1_j13wd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9387643, 0, 0, 0, 0.96741444, 0, 0, 0, 0.9396113, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_au6lh")
+mesh = SubResource("BoxMesh_y0vo0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.9877234, 0, 0, 0, 0.9877234, 0, 0, 0, 0.9877234, 0, 0, 0)
+shape = SubResource("BoxShape3D_je3b2")

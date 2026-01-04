@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://dnwpo7bww82vl"]
+
+[ext_resource type="Script" uid="uid://dd7xnb753udf0" path="res://unit.gd" id="1_ypl2c"]
+[ext_resource type="Texture2D" uid="uid://dg83w7d6e1apr" path="res://Chibi-character-template_skin0_part1_by_AxulArt.png" id="2_lqx2h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvdn7"]
+atlas = ExtResource("2_lqx2h")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d172s"]
+atlas = ExtResource("2_lqx2h")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4nis"]
+atlas = ExtResource("2_lqx2h")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1vr2"]
+atlas = ExtResource("2_lqx2h")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y23oe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvdn7")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d172s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4nis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1vr2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4nis")
+}],
+"loop": true,
+"name": &"Walk Down",
+"speed": 8.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="Unit" type="Node3D"]
+script = ExtResource("1_ypl2c")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+pixel_size = 0.04
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_y23oe")
+animation = &"Idle"

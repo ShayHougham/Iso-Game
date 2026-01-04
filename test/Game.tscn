@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://lju8rbqgrtpf"]
+
+[ext_resource type="Script" uid="uid://db8ts3p8ua6si" path="res://game.gd" id="1_u44n3"]
+[ext_resource type="Script" uid="uid://ccidm303bjcc0" path="res://Board.gd" id="1_xkndl"]
+[ext_resource type="PackedScene" uid="uid://dnwpo7bww82vl" path="res://Unit.tscn" id="2_sb48q"]
+[ext_resource type="PackedScene" uid="uid://datr6o13poucr" path="res://Tile.tscn" id="2_u44n3"]
+[ext_resource type="Script" uid="uid://bvkwhb241yaif" path="res://camera_rig.gd" id="3_t88pq"]
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_u44n3")
+unit_scene = ExtResource("2_sb48q")
+
+[node name="CameraRig" type="Node3D" parent="."]
+script = ExtResource("3_t88pq")
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+transform = Transform3D(-15.010935, 10.614333, -10.614333, 0, 15.010935, 15.010935, 15.010935, 10.614333, -10.614333, -5, 10, -5)
+
+[node name="Board" type="Node3D" parent="."]
+script = ExtResource("1_xkndl")
+tile_scene = ExtResource("2_u44n3")
+
+[node name="Units" type="Node3D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
